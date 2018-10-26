@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import Todo from './Todo';
+
 class App extends Component {
   constructor() {
     super();
@@ -39,11 +41,7 @@ class App extends Component {
           <button type="submit">save</button>
         </form>
         <ul>
-          {todos.map((todo, index) => (
-            <li key={index}>
-              {todo}
-              <button type="button" onClick={() => this.deleteTodo(index)}>x</button>
-            </li>))}
+          {todos.map((todo, index) => (<Todo todo={todo} key={index} deleteTodo={() => this.deleteTodo(index)}/>))}
         </ul>
       </div>
     );
